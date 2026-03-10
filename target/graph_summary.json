@@ -1,1 +1,0 @@
-{"_invocation_id": "8e6c47f9-bb2d-4d10-a10f-f253e625681a", "linked": {"0": {"name": "source.enpal_assessment_project.postgres_public.activity", "type": "source", "succ": [1]}, "1": {"name": "model.enpal_assessment_project.test_model", "type": "model"}}}
