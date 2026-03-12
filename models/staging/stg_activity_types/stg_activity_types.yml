@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: stg_activity_types
+    description: The staging model for activity types
+    config:
+      tags: ["staging"]
+    columns:
+      - name: activity_type_id
+        description: The unique identifier for the activity type
+        data_tests:
+          - unique
+          - not_null
+      - name: activity_type_name
+        description: The name of the activity type
+      - name: is_active
+        description: Whether the activity type is active
+      - name: activity_type
+        description: The type of activity
+        data_tests:
+          - not_null

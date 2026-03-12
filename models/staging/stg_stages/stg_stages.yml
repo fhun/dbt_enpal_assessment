@@ -1,0 +1,15 @@
+version: 2
+
+models:
+  - name: stg_stages
+    description: The staging model for stages
+    config:
+      tags: ["staging"]
+    columns:
+      - name: stage_id
+        description: ID of the stage
+        data_tests:
+          - unique
+          - not_null
+      - name: stage_name
+        description: Name of the stage

@@ -1,0 +1,26 @@
+version: 2
+
+models:
+  - name: stg_deal_changes
+    description: The staging model for deal changes
+    config:
+      tags: ["staging"]
+    columns:
+      - name: deal_id
+        description: ID of the deal associated with the change
+        data_tests:
+          - not_null
+      - name: changed_at
+        description: The timestamp when the change was made
+        data_tests:
+          - not_null
+      - name: changed_field_key
+        description: The field that was changed
+        data_tests:
+          - not_null
+          - accepted_values: # only include the fields that are given for this assessment, for real-world use cases, we might want to include more fields or not have this test at all
+              values: ['add_time', 'user_id', 'stage_id', 'lost_reason']
+      - name: new_value
+        description: The new value after the change
+        data_tests:
+          - not_null

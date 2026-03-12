@@ -16,3 +16,4 @@ __pycache__/
 .env
 venv/
 EOF
+dbt_internal_packages/
