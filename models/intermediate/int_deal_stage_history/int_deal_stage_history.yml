@@ -14,8 +14,6 @@ models:
         description: ID of the stage that the deal was moved to
         data_tests:
           - not_null
-      - name: stage_name
-        description: Name of the new stage
       - name: stage_started_at
         description: Timestamp of when the stage was entered
       - name: stage_ended_at
