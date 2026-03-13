@@ -4,7 +4,7 @@ models:
   - name: dim_users
     description: The dimension table for users, containing information about sales representatives
     config:
-      tags: ["dimension"]
+      tags: ["dimension", "core"]
     columns:
       - name: user_id
         description: ID of the user (sales representative)

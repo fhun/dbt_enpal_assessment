@@ -4,7 +4,7 @@ models:
   - name: dim_activity_types
     description: The dimension table for activity types, containing information about the different types of activities in the sales process
     config:
-      tags: ["dimension"]
+      tags: ["dimension", "core"]
     columns:
       - name: activity_type_id
         description: ID of the activity type
