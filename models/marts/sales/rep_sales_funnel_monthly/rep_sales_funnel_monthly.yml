@@ -1,0 +1,20 @@
+version: 2
+
+models:
+  - name: rep_sales_funnel_monthly
+    description: The report model for the sales funnel on a monthly basis, showing the number of deals in each stage of the funnel for each sales representative
+    config:
+      tags: ["report", "sales"]
+    columns:
+      - name: month
+        description: The month for which the sales funnel is calculated
+        data_tests:
+          - not_null
+      - name: kpi_name
+        description: Name of the KPI being measured (e.g., "Lead Generation", "Sales Call 1")
+        data_tests:
+          - not_null
+      - name: funnel_step_label
+        description: Label of the funnel step, e.g., Step 1, Step 2, etc.
+      - name: deals_count
+        description: The number of deals in the corresponding funnel step for the sales representative in the given month
