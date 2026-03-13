@@ -15,8 +15,6 @@ models:
         description: Type of the activity
         data_tests:
           - not_null
-      - name: activity_type_name
-        description: Name of the activity type
       - name: assigned_to_user_id
         description: ID of the sales representative assigned to the activity
         data_tests:
