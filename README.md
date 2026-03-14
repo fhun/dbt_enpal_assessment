@@ -120,6 +120,11 @@ raw source (Postgres)
 reporting layer to ensure we count meaningful funnel progress.
 4. Filtering in the reporting layer:
  - All filtering of activity types (Sales Call 1, Sales Call 2) and completion status (`is_done = true`) is applied in `rep_sales_funnel_monthly`, not in the intermediate or fact layers. This ensures that `fct_activities` remains a generic, reusable table that can serve future KPIs requiring different activity types or statuses.
+5. Staging all source tables including `stg_fields`:
+- All source tables are staged to maintain a consistent structure in the data pipeline and to provide reference data for future analysis.
+- The `stg_fields` is available for future use to decode the `field_value_options` JSON field which can be useful for decoding the stage_id and lost_reason_id in the deal_changes table. The next step would be building `int_field_options` to parse the column.
+- The `stg_stages` is used as the reference table for the stage names in the deal stage history analysis as it provides a simpler and more direct way to get the stage names compared to decoding the stage_id from the `stg_fields`.
+
 
 [back to Table of Contents](#table-of-contents)
 
