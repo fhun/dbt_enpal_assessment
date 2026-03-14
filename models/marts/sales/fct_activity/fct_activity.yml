@@ -1,0 +1,51 @@
+version: 2
+
+models:
+  - name: fct_activity
+    description: The fact table for activities, containing information about the activities performed by sales representatives and their association with funnel steps
+    config:
+      tags: ["fact", "sales"]
+    columns:
+      - name: activity_id
+        description: ID of the activity
+        data_tests:
+          - not_null
+          - unique
+      - name: deal_id
+        description: ID of the deal associated with the activity
+        data_tests:
+          - not_null
+      - name: activity_type_id
+        description: ID of the activity type
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_activity_types')
+              field: activity_type_id
+      - name: activity_type
+        description: Type of the activity
+      - name: activity_type_name
+        description: Name of the activity type
+      - name: funnel_step_label
+        description: Label of the funnel step calculated based on the activity type, i.e., Step 2.1, Step 3.1, null
+      - name: funnel_step_order
+        description: Funnel step order to determine the order of the steps in the sales process
+      - name: assigned_to_user_id
+        description: ID of the sales representative assigned to the activity
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_users')
+              field: user_id
+      - name: user_name
+        description: Name of the sales representative assigned to the activity
+      - name: user_email
+        description: Email of the sales representative assigned to the activity
+      - name: is_done
+        description: Boolean indicating whether the activity is completed
+      - name: due_at
+        description: Due date of the activity
+        data_tests:
+          - not_null
+      - name: activity_status
+        description: Status of the activity (e.g., 'completed', 'pending', 'overdue')

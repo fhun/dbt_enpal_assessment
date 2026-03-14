@@ -34,3 +34,5 @@ models:
     # Config indicated by + and applies to all files under models/example/
     +schema: pipedrive_analytics
     +materialized: table
+    staging: # set staging models to be views since they are only used for intermediate transformations
+      +materialized: view

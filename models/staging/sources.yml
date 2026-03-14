@@ -1,0 +1,78 @@
+version: 2
+
+sources:
+  - name: postgres_public
+    database: postgres
+    schema: public
+    tables:
+      - name: activity
+        description: Sales representatives' activities table from Pipedrive CRM
+        columns:
+          - name: activity_id
+            description: ID of the activity
+          - name: type
+            description: Type of the activity (e.g., follow_up, meeting, after_close_call)
+          - name: assigned_to_user
+            description: ID of the sales representative assigned to the activity
+          - name: deal_id
+            description: ID of the deal associated with the activity
+          - name: done
+            description: Boolean indicating whether the activity is completed
+          - name: due_to
+            description: Due date of the activity
+
+      - name: activity_types
+        description: The types of activities, including Sales Call 1 and Sales Call 2 from Pipedrive CRM
+        columns:
+          - name: id
+            description: ID of the activity type
+          - name: name
+            description: Name of the activity type (e.g., Sales Call 1, Sales Call 2)
+          - name: active
+            description: Active status of the activity type (Yes or No)
+          - name: type
+            description: Type of the activity (e.g., follow_up, meeting, after_close_call)
+
+      - name: deal_changes
+        description: Changes to deals with timestamps, including the stage changes
+        columns:
+          - name: deal_id
+            description: ID of the deal associated with the change
+          - name: change_time
+            description: Timestamp of when the change was made
+          - name: changed_field_key
+            description: The field that was changed (e.g., stage_id)
+          - name: new_value
+            description: The new value of the changed field (e.g., the new stage_id)
+
+      - name: fields
+        description: The fields information with explanations of what they represent
+        columns:
+          - name: id
+            description: ID of the field
+          - name: field_key
+            description: Key of the field (e.g., stage_id, add_time, lost_reason)
+          - name: name
+            description: Name of the field (e.g., Stage, Deal created, Lost reason)
+          - name: field_value_options
+            description: Possible values for the field (e.g., for stage_id, 1 - Lead Generation, 2 - Qualified Lead, etc.)
+
+      - name: stages
+        description: The stages of the sales process, including the stage names and their corresponding IDs
+        columns:
+          - name: stage_id
+            description: ID of the stage
+          - name: stage_name
+            description: Name of the stage (e.g., Lead Generation, Qualified Lead, etc.)
+
+      - name: users
+        description: Sales representatives' information
+        columns:
+          - name: id
+            description: ID of the sales representative
+          - name: name
+            description: Name of the sales representative
+          - name: email
+            description: Email of the sales representative
+          - name: modified
+            description: Timestamp of the last modification to the sales representative's information

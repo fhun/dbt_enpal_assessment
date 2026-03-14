@@ -1,0 +1,19 @@
+cat > .gitignore << EOF
+# dbt generated files
+target/
+logs/
+dbt_packages/
+
+# dbt local user config
+.user.yml
+
+# OS files
+.DS_Store
+
+# Python
+__pycache__/
+*.pyc
+.env
+venv/
+EOF
+dbt_internal_packages/

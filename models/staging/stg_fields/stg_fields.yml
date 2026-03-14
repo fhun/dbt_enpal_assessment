@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: stg_fields
+    description: The staging model for fields
+    config:
+      tags: ["staging"]
+    columns:
+      - name: field_id
+        description: ID of the field
+        data_tests:
+          - unique
+          - not_null
+      - name: field_key
+        description: Key of the field
+        data_tests:
+          - not_null
+      - name: field_name
+        description: Name of the field
+      - name: field_value_options
+        description: >
+            JSON array of possible values for enumerated fields (e.g. stage labels,
+            lost reason labels)

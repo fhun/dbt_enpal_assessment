@@ -1,0 +1,31 @@
+version: 2
+
+models:
+  - name: stg_activity
+    description: The staging model for activities
+    config:
+      tags: ["staging"]
+    columns:
+      - name: activity_id
+        description: ID of the activity
+        data_tests:
+          - not_null
+          - unique
+      - name: activity_type
+        description: Type of the activity
+        data_tests:
+          - not_null
+      - name: assigned_to_user_id
+        description: ID of the sales representative assigned to the activity
+        data_tests:
+          - not_null
+      - name: deal_id
+        description: ID of the deal associated with the activity
+        data_tests:
+          - not_null
+      - name: is_done
+        description: Boolean indicating whether the activity is completed
+      - name: due_at
+        description: Due date of the activity
+        data_tests:
+          - not_null

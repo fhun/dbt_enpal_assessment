@@ -1,0 +1,21 @@
+version: 2
+
+models:
+  - name: dim_users
+    description: The dimension table for users, containing information about sales representatives
+    config:
+      tags: ["dimension", "core"]
+    columns:
+      - name: user_id
+        description: ID of the user (sales representative)
+        data_tests:
+          - unique
+          - not_null
+      - name: user_name
+        description: Name of the user (sales representative)
+      - name: user_email
+        description: Email of the user (sales representative)
+      - name: modified_at
+        description: Timestamp of when the user information was last modified
+        data_tests:
+          - not_null

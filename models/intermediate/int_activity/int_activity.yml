@@ -1,0 +1,33 @@
+version: 2
+
+models:
+  - name: int_activity
+    description: The intermediate model for activities, enriched with related dimensions
+    config:
+      tags: ["intermediate"]
+    columns:
+      - name: activity_id
+        description: ID of the activity
+        data_tests:
+          - unique
+          - not_null
+      - name: activity_type
+        description: Type of the activity
+        data_tests:
+          - not_null
+      - name: assigned_to_user_id
+        description: ID of the sales representative assigned to the activity
+        data_tests:
+          - not_null
+      - name: deal_id
+        description: ID of the deal associated with the activity
+        data_tests:
+          - not_null
+      - name: is_done
+        description: Boolean indicating whether the activity is completed
+      - name: due_at
+        description: Due date of the activity
+        data_tests:
+          - not_null
+      - name: activity_status
+        description: Status of the activity (e.g., 'completed', 'pending', 'overdue')

@@ -1,0 +1,23 @@
+version: 2
+
+models:
+  - name: dim_activity_types
+    description: The dimension table for activity types, containing information about the different types of activities in the sales process
+    config:
+      tags: ["dimension", "core"]
+    columns:
+      - name: activity_type_id
+        description: ID of the activity type
+        data_tests:
+          - unique
+          - not_null
+      - name: funnel_step_label
+        description: Label of the funnel step calculated based on the activity type, i.e., Step 2.1, Step 3.1, null
+      - name: funnel_step_order
+        description: Funnel step order to determine the order of the steps in the sales process
+      - name: activity_type_name
+        description: Name of the activity type
+      - name: is_active
+        description: Indicates whether the activity type is active
+      - name: activity_type
+        description: Type of the activity

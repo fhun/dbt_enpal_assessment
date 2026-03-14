@@ -1,0 +1,36 @@
+version: 2
+
+models:
+  - name: fct_deal_stage_history
+    description: >
+        The fact table for deal stage history, containing information about the stages
+        that deals have gone through over time
+    config:
+      tags: ["fact", "sales"]
+    columns:
+      - name: deal_id
+        description: ID of the deal
+        data_tests:
+          - not_null
+      - name: stage_id
+        description: ID of the stage the deal was in at a specific point in time
+        data_tests:
+          - not_null
+          - relationships:
+              to: ref('dim_stages')
+              field: stage_id
+      - name: stage_name
+        description: Name of the stage
+      - name: funnel_step_label
+        description: Label of the funnel step calculated based on the stage id, e.g., Step 1, Step 2, etc.
+      - name: stage_started_at
+        description: Timestamp of when the stage was entered
+      - name: stage_ended_at
+        description: Timestamp of when the stage was exited
+      - name: stage_duration_days
+        description: >
+            Duration of the stage in days, calculated as the difference between stage_ended_at
+            and stage_started_at. For completed stages, this will be the actual duration.
+            For the current stage, this will be the duration from stage_started_at to the current timestamp.
+      - name: is_current_stage
+        description: Boolean indicating whether this is the current stage of the deal

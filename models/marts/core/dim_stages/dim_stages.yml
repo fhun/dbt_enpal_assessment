@@ -1,0 +1,17 @@
+version: 2
+
+models:
+  - name: dim_stages
+    description: The dimension table for stages, containing information about the different stages in the sales process
+    config:
+      tags: ["dimension", "core"]
+    columns:
+      - name: stage_id
+        description: ID of the stage
+        data_tests:
+          - unique
+          - not_null
+      - name: funnel_step_label
+        description: Label of the funnel step calculated based on the stage id, e.g., Step 1, Step 2, etc.
+      - name: stage_name
+        description: Name of the stage
