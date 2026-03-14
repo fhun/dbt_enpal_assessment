@@ -29,3 +29,5 @@ models:
         description: Due date of the activity
         data_tests:
           - not_null
+      - name: activity_status
+        description: Status of the activity (e.g., 'completed', 'pending', 'overdue')

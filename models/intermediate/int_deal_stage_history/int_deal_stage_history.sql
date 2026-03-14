@@ -9,7 +9,7 @@ with deal_changes as (
         *
     from {{ ref('stg_deal_changes') }}
 ),
-w_joined as (
+w_filtered as (
     select
         dc.deal_id,
         dc.changed_at,
@@ -26,7 +26,7 @@ w_stage_end_time as (
             partition by deal_id
             order by changed_at
         )          as stage_ended_at
-    from w_joined
+    from w_filtered
 ),
 w_stage_duration as (
     select
