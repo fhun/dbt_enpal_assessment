@@ -16,6 +16,9 @@ models:
         description: ID of the stage the deal was in at a specific point in time
         data_tests:
           - not_null
+          - relationships:
+              to: ref('dim_stages')
+              field: stage_id
       - name: stage_name
         description: Name of the stage
       - name: funnel_step_label

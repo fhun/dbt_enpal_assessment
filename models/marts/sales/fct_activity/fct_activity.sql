@@ -26,7 +26,8 @@ w_joined as (
         u.user_name,
         u.user_email,
         a.is_done,
-        a.due_at
+        a.due_at,
+        a.activity_status
     from activity as a
     left join activity_types as at
         on a.activity_type = at.activity_type
